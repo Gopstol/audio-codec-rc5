@@ -2,12 +2,11 @@ import wave
 import audioop
 from main import Encrypt
 
-# MAIN FILE
+rc5 = Encrypt(32, 12, b'\xDC\x49\xDB\x13\x75\xA5\x58\x4F\x64\x85\xB4\x13\xB5\xF1\x2B\xAF')
 
-rc5 = Encrypt(32, 12, b'\x91\x5F\x46\x19\xBE\x41\xB2\x51\x63\x55\xA5\x01\x10\xA9\xCE\x91')
-
-rc5.encryptFile('loop.wav', "out.txt")
-rc5.decryptFile("out.txt", "test.wav")
+rc5.encryptFile("impact.wav", "out2.dacd")
+print("great")
+rc5.encryptFile("out2.dacd", "test1.wav")
 
 audio = wave.open("loop.wav")
 audio1 = wave.open("test.wav")
