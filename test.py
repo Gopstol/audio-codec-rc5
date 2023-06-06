@@ -4,7 +4,7 @@ from main import Encrypt
 
 rc5 = Encrypt(32, 12, b'\xDC\x49\xDB\x13\x75\xA5\x58\x4F\x64\x85\xB4\x13\xB5\xF1\x2B\xAF')
 
-rc5.encryptFile("impact.wav", "out2.dacd")
+rc5.encryptFile("music.wav", "out2.dacd")
 print("great")
 rc5.encryptFile("out2.dacd", "test1.wav")
 
