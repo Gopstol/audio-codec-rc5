@@ -76,17 +76,6 @@ class Encrypt:
         return (A.to_bytes(self.w8, byteorder='little')
                 + B.to_bytes(self.w8, byteorder='little'))
 
-    def decryptBlock(self, A, B):
-        A = int.from_bytes(A, byteorder='little')
-        B = int.from_bytes(B, byteorder='little')
-        for i in range(self.R, 0, -1):
-            B = self.rshift(B - self.S[2 * i + 1], A) ^ A
-            A = self.rshift(A - self.S[2 * i], B) ^ B
-        B = (B - self.S[1]) % self.mod
-        A = (A - self.S[0]) % self.mod
-        return (A.to_bytes(self.w8, byteorder='little')
-                + B.to_bytes(self.w8, byteorder='little'))
-
     def encryptFile(self, inpFileName, outFileName):
         with open(inpFileName, 'rb') as inp, open(outFileName, 'wb') as out:
             self.counter_int = 0
